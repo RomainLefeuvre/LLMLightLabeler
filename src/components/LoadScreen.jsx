@@ -67,7 +67,7 @@ export default function LoadScreen({ onLoad }) {
 
   return (
     <div className="load-screen">
-      <h1>Data Labeler</h1>
+      <h1>Light Labeler</h1>
 
       <div className="intro">
         <p className="intro-lead">A lightweight tool to label your data.</p>

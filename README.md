@@ -1,4 +1,4 @@
-# Data Labeler
+# Light Labeler
 
 A minimal static web app for manually labeling JSON datasets — designed to evaluate LLM predictions by assigning `ground_truth` to each item.
 
