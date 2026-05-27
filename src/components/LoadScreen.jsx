@@ -118,6 +118,13 @@ export default function LoadScreen({ onLoad }) {
 
       {error && <div className="error">{error}</div>}
 
+      <p className="source-link">
+        Open source ·{' '}
+        <a href="https://github.com/RomainLefeuvre/LLMLightLabeler" target="_blank" rel="noreferrer">
+          github.com/RomainLefeuvre/LLMLightLabeler
+        </a>
+      </p>
+
       {showSchema && (
         <div className="schema-box">
           <div className="schema-title">Expected JSON format</div>

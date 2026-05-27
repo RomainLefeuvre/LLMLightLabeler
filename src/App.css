@@ -153,6 +153,20 @@ h1 {
 
 .load-actions { display: flex; align-items: center; gap: 12px; margin-top: 10px; }
 
+.source-link {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 14px;
+}
+.source-link a {
+  color: var(--text-dim);
+  text-decoration: none;
+}
+.source-link a:hover {
+  color: var(--text);
+  text-decoration: underline;
+}
+
 .error { color: var(--error); font-size: 0.78rem; margin-top: 8px; }
 
 .btn-ghost {
