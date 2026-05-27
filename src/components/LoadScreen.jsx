@@ -102,14 +102,14 @@ export default function LoadScreen({ onLoad }) {
 
       <div className="load-actions">
         <button className="btn-primary" onClick={() => parse(textRef.current.value)}>
-          Load &amp; Start →
+          Start →
         </button>
         <span className="hint">Ctrl+Enter to start</span>
         <button className="btn btn-amber" onClick={() => {
           textRef.current.value = JSON.stringify(exampleData, null, 2)
           textRef.current.scrollTop = 0
         }}>
-          Try example
+          Load an example
         </button>
         <button className="btn btn-blue" onClick={() => setShowSchema(s => !s)}>
           {showSchema ? 'Hide' : 'Show'} format spec
