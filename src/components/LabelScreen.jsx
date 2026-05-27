@@ -1,10 +1,11 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 function isLabeled(item) {
   return Array.isArray(item.ground_truth) && item.ground_truth.length > 0
 }
 
 export default function LabelScreen({ items, config, current, onToggle, onNavigate, onAdvance, onDone }) {
+  const [revealed, setRevealed] = useState(false)
   const item = items[current]
   const attrs = config.attribute_to_show || Object.keys(item).filter(k => k !== 'ground_truth')
   const selected = new Set(item.ground_truth || [])
@@ -12,8 +13,19 @@ export default function LabelScreen({ items, config, current, onToggle, onNaviga
   const progress = (labeled / items.length) * 100
   const predAttr = config.prediction_attribute
   const prediction = predAttr != null ? item[predAttr] : undefined
+  const hasPrediction = prediction != null
+
+  // Reset reveal state whenever we move to a different item
+  useEffect(() => { setRevealed(false) }, [current])
 
   useEffect(() => {
+    function handleNext() {
+      if (hasPrediction && isLabeled(item) && !revealed) {
+        setRevealed(true)
+      } else {
+        onAdvance()
+      }
+    }
     function onKey(e) {
       if (e.target.tagName === 'TEXTAREA' || e.target.tagName === 'INPUT') return
       const num = parseInt(e.key)
@@ -21,13 +33,23 @@ export default function LabelScreen({ items, config, current, onToggle, onNaviga
         onToggle(config.categories[num - 1])
         return
       }
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onAdvance() }
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleNext() }
       if (e.key === 'ArrowLeft')  onNavigate(-1)
       if (e.key === 'ArrowRight') onNavigate(1)
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [config.categories, onToggle, onAdvance, onNavigate])
+  }, [config.categories, onToggle, onAdvance, onNavigate, item, revealed, hasPrediction])
+
+  function handleNext() {
+    if (hasPrediction && isLabeled(item) && !revealed) {
+      setRevealed(true)
+    } else {
+      onAdvance()
+    }
+  }
+
+  const nextLabel = hasPrediction && isLabeled(item) && !revealed ? 'Compare →' : 'Next →'
 
   return (
     <div className="label-screen">
@@ -57,7 +79,7 @@ export default function LabelScreen({ items, config, current, onToggle, onNaviga
           )
         })}
 
-        {prediction != null && isLabeled(item) && (
+        {hasPrediction && revealed && (
           <div className="prediction-row">
             <span className="prediction-label">LLM prediction</span>
             <span className="prediction-badge">{String(prediction)}</span>
@@ -88,7 +110,9 @@ export default function LabelScreen({ items, config, current, onToggle, onNaviga
 
       <div className="nav-row">
         <button className="btn" onClick={() => onNavigate(-1)} disabled={current === 0}>← Prev</button>
-        <button className="btn" onClick={() => onNavigate(1)} disabled={current === items.length - 1}>Next →</button>
+        <button className="btn" onClick={handleNext} disabled={current === items.length - 1 && revealed}>
+          {nextLabel}
+        </button>
       </div>
     </div>
   )

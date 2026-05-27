@@ -1,4 +1,25 @@
 {
+    "config": {
+    "attribute_to_show": [
+      "step_name",
+      "group_execution",
+      "project",
+      "workflow_filename",
+      "job_name",
+      "inner_group"
+    ],
+    "prediction_attribute":"Class",
+    "categories": [
+      "Other",
+      "Cloning and source management",
+      "Compilation and building",
+      "Testing",
+      "Deployment and publishing",
+      "Code analysis and quality",
+      "Documentation",
+      "Github Internal steps"
+    ]
+  },
   "content": [
     {
       "ID": "Chainfire/libsuperuser___ci.yml___build___Run actionscheckout@v2",
@@ -364,25 +385,6 @@
       "matrix_nb": "ubuntu-latest",
       "inner_group": "['> Task :groovy-swing:compileGroovy', '> Task :groovy-dateutil:compileTestJava', '> Task :groovy-test-junit5:compileTestJava NO-SOURCE', '> Task :groovy-cli-picocli:classes', '> Task :groovy-console:compileJava NO-SOURCE', '> Task :jar', '> Task :groovy-test:compileTestJava NO-SOURCE', '> Task :build-logic:compileGroovy', '> Task :groovy-typecheckers:compileJava NO-SOURCE', '> Task :groovy-cli-picocli:test', '> Task :groovy-json:compileJava', '> Task :groovy-xml:compileJava', '> Task :groovy-groovysh:processTestResources', '> Task :groovy-console:testClasses', '> Task :compileTestFixturesJava NO-SOURCE', '> Task :groovy-yaml:testClasses', '> Task :groovy-cli-commons:classes', '> Task :groovy-dateutil:test', '> Task :groovy-ant:test', '> Task :groovy-astbuilder:test', '> Task :groovy-groovysh:test', '> Task :groovy-nio:compileTestJava NO-SOURCE', '> Task :groovy-ginq:compileGroovy', '> Task :groovy-contracts:classes', '> Task :groovy-typecheckers:testClasses', '> Task :groovy-test:testClasses', '> Task :generateGrammarSource', '> Task :groovy-templates:compileTestGroovy', '> Task :groovy-xml:compileTestJava NO-SOURCE', '> Task :groovy-json:jar', '> Task :build-logic:classes', '> Task :test', '> Task :groovy-ginq:test', '> Task :groovy-groovysh:processResources', '> Task :groovy-cli-picocli:compileTestJava NO-SOURCE', '> Task :groovy-console:compileTestJava NO-SOURCE', '> Task :groovy-ant:jar', '> Task :generateReleaseInfo', '> Task :osgiClasses', '> Task :groovy-groovydoc:compileJava', '> Task :groovy-xml:processResources NO-SOURCE', '> Task :groovy-xml:compileTestGroovy', '> Task :groovy-cli-commons:test', '> Task :groovy-testng:compileTestJava NO-SOURCE', '> Task :groovy-jsr223:classes', '> Task :groovy-contracts:testClasses', '> Task :groovy-ginq:processResources NO-SOURCE', '> Task :groovy-groovydoc:testClasses', '> Task :groovy-servlet:compileTestJava NO-SOURCE', '> Task :groovy-dateutil:generateReleaseInfo', '> Task :groovy-json:testClasses', '> Task :bootstrapJar', '> Task :groovy-console:compileGroovy', '> Task :groovy-groovydoc:test', '> Task :groovy-jsr223:processTestResources NO-SOURCE', '> Task :compileTestGroovy', '> Task :testFixturesClasses', '> Task :generateTestGrammarSource NO-SOURCE', '> Task :groovy-servlet:testClasses', '> Task :groovy-macro-library:testClasses', '> Task :groovy-xml:processTestResources', '> Task :groovy-servlet:processTestResources NO-SOURCE', '> Task :groovy-sql:compileTestJava NO-SOURCE', '> Task :groovy-datetime:compileTestJava', '> Task :groovy-jmx:compileJava', '> Task :classes', '> Task :compileJava', '> Task :groovy-templates:compileTestJava', '> Task :groovy-groovysh:test FAILED', '> Task :groovy-nio:testClasses', '> Task :groovy-jsr223:moduleDescriptor', '> Task :groovy-yaml:compileTestJava NO-SOURCE', '> Task :groovy-json:classes', '> Task :groovy-groovysh:compileJava NO-SOURCE', '> Task :groovy-macro:moduleDescriptor', '> Task :groovy-templates:compileJava NO-SOURCE', '> Task :groovy-xml:generateReleaseInfo', '> Task :groovy-jsr223:compileTestJava', '> Task :groovy-swing:compileTestJava NO-SOURCE', '> Task :groovy-jmx:classes', '> Task :groovy-servlet:compileGroovy NO-SOURCE', '> Task :groovy-xml:classes', '> Task :groovy-console:jar', '> Task :groovy-groovydoc:classes', '> Task :groovy-typecheckers:compileTestJava NO-SOURCE', '> Task :groovy-macro-library:compileJava NO-SOURCE', '> Task :groovy-groovysh:compileTestJava NO-SOURCE', '> Task :groovy-groovydoc:compileTestJava NO-SOURCE', '> Task :groovy-docgenerator:jar', '> Task :groovy-jmx:compileTestJava', '> Task :groovy-macro:jar', '> Task :groovy-astbuilder:compileTestJava NO-SOURCE', '> Task :groovy-macro-library:compileTestJava NO-SOURCE', '> Task :groovy-cli-commons:compileTestJava NO-SOURCE', '> Task :groovy-macro:compileTestJava NO-SOURCE', '> Task :groovy-cli-commons:compileJava NO-SOURCE', '> Task :build-logic:compileGroovyPlugins', '> Task :groovy-cli-commons:testClasses', '> Task :groovy-console:test', '> Task :groovy-datetime:test', '> Task :groovy-toml:compileTestJava NO-SOURCE', '> Task :compileTestExtensionModule', '> Task :groovy-macro:compileJava NO-SOURCE', '> Task :groovy-cli-picocli:compileJava NO-SOURCE', '> Task :groovy-ant:compileJava', '> Task :build-logic:generatePluginAdapters', '> Task :groovy-macro:classes', '> Task :groovy-sql:testClasses', '> Task :groovy-astbuilder:processResources', '> Task :groovy-groovydoc:jar', '> Task :groovy-astbuilder:testClasses', '> Task :test FAILED', '> Task :groovy-test-junit5:compileJava', '> Task :groovy-ginq:compileJava NO-SOURCE', '> Task :groovy-swing:processTestFixturesResources NO-SOURCE', '> Task :groovy-docgenerator:compileJava NO-SOURCE', '> Task :groovy-jsr223:processResources', '> Task :groovy-swing:testFixturesClasses', '> Task :groovy-contracts:compileTestJava NO-SOURCE', '> Task :groovy-json:compileTestJava NO-SOURCE', '> Task :groovy-templates:processTestResources', '> Task :groovy-test-junit5:testClasses', '> Task :groovy-swing:processTestResources NO-SOURCE', '> Task :groovy-test:compileJava', '> Task :groovy-datetime:testClasses', '> Task :processTestResources', '> Task :groovy-swing:compileTestFixturesJava NO-SOURCE', '> Task :groovy-contracts:test', '> Task :groovy-swing:testClasses', '> Task :build-logic:compileJava', '> Task :groovy-ant:compileTestJava NO-SOURCE', '> Task :build-logic:jar']"
     }
-  ],
-  "config": {
-    "attribute_to_show": [
-      "step_name",
-      "group_execution",
-      "project",
-      "workflow_filename",
-      "job_name",
-      "inner_group"
-    ],
-    "categories": [
-      "Other",
-      "Cloning and source management",
-      "Compilation and building",
-      "Testing",
-      "Deployment and publishing",
-      "Code analysis and quality",
-      "Documentation",
-      "Github Internal steps"
-    ]
-  }
+  ]
+
 }
