@@ -26,15 +26,15 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.6;
   min-height: 100vh;
 }
 
 .app {
-  max-width: 740px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 36px 24px;
+  padding: 48px 32px;
 }
 
 h1 {
@@ -65,11 +65,63 @@ h1 {
 .btn-primary       { color: var(--accent); background: var(--accent-bg); border-color: var(--accent-border); }
 .btn-primary:hover { background: rgba(74, 222, 128, 0.13); }
 
+.btn-amber       { color: var(--predict); background: var(--predict-bg); border-color: var(--predict-border); }
+.btn-amber:hover { background: rgba(251, 191, 36, 0.13); }
+
+.btn-blue       { color: #93c5fd; background: rgba(96, 165, 250, 0.07); border-color: rgba(96, 165, 250, 0.22); }
+.btn-blue:hover { background: rgba(96, 165, 250, 0.13); }
+
 .hint { font-size: 0.72rem; color: var(--text-muted); }
 
 /* ── LOAD SCREEN ──────────────────────────────────────────── */
 
-.load-screen { max-width: 640px; }
+.load-screen { max-width: 860px; }
+
+.intro {
+  padding-bottom: 28px;
+  margin-bottom: 28px;
+  border-bottom: 1px solid var(--border);
+}
+.intro-lead {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.25;
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
+}
+.intro-sub {
+  font-size: 0.93rem;
+  color: var(--text-dim);
+  line-height: 1.65;
+  margin-bottom: 18px;
+  max-width: 560px;
+}
+.intro-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.intro-bullets li {
+  font-size: 0.87rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+.intro-bullets li::before {
+  content: '✓';
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.intro-bullets code {
+  font-family: 'JetBrains Mono', 'Fira Mono', monospace;
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
 
 .drop-zone {
   border: 1px dashed var(--border);

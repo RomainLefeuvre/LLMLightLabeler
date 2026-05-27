@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react'
+import exampleData from '../../labeler_input.example.json'
 
 const PLACEHOLDER = `{
   "content": [
@@ -68,6 +69,18 @@ export default function LoadScreen({ onLoad }) {
     <div className="load-screen">
       <h1>Data Labeler</h1>
 
+      <div className="intro">
+        <p className="intro-lead">A lightweight tool to label your data.</p>
+        <p className="intro-sub">
+          Drop in a JSON file, assign a label to each item, download the result. That's all this tool does — by design.
+        </p>
+        <ul className="intro-bullets">
+          <li>One job only: present data for manual labeling.</li>
+          <li>Everything runs in your browser — your data never leaves your machine.</li>
+          <li>Export <code>labeled.json</code> and analyze it with Python, R, or any tool you choose.</li>
+        </ul>
+      </div>
+
       <div
         className={`drop-zone${dragging ? ' drag-over' : ''}`}
         onClick={() => fileRef.current.click()}
@@ -92,8 +105,14 @@ export default function LoadScreen({ onLoad }) {
           Load &amp; Start →
         </button>
         <span className="hint">Ctrl+Enter to start</span>
-        <button className="btn-ghost" onClick={() => setShowSchema(s => !s)}>
-          {showSchema ? 'Hide' : 'Show'} format reference
+        <button className="btn btn-amber" onClick={() => {
+          textRef.current.value = JSON.stringify(exampleData, null, 2)
+          textRef.current.scrollTop = 0
+        }}>
+          Try example
+        </button>
+        <button className="btn btn-blue" onClick={() => setShowSchema(s => !s)}>
+          {showSchema ? 'Hide' : 'Show'} format spec
         </button>
       </div>
 

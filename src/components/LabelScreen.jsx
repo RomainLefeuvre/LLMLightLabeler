@@ -57,7 +57,7 @@ export default function LabelScreen({ items, config, current, onToggle, onNaviga
           )
         })}
 
-        {prediction != null && (
+        {prediction != null && isLabeled(item) && (
           <div className="prediction-row">
             <span className="prediction-label">LLM prediction</span>
             <span className="prediction-badge">{String(prediction)}</span>
