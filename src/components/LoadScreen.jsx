@@ -120,8 +120,8 @@ export default function LoadScreen({ onLoad }) {
 
       <p className="source-link">
         Open source ·{' '}
-        <a href="https://github.com/RomainLefeuvre/LLMLightLabeler" target="_blank" rel="noreferrer">
-          github.com/RomainLefeuvre/LLMLightLabeler
+        <a href="https://github.com/RomainLefeuvre/LightLabeler" target="_blank" rel="noreferrer">
+          github.com/RomainLefeuvre/LightLabeler
         </a>
       </p>
 
